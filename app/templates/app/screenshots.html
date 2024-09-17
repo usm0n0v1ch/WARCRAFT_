@@ -1,0 +1,13 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+{% block title %}Screenshots{% endblock %}
+
+{% block content %}
+<div class="screenshot-gallery">
+    {% for screenshot in screenshots %}
+    <div class="screenshot-card">
+        <img src="{{ screenshot.image.url }}" alt="Screenshot">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+header{
+    background: linear-gradient(90deg, #001f3f, #003366, #004080, #0055a5);
+    color: white;
+
+
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    font-size: 150%;
+    padding-left: 20px;
+    background: linear-gradient(90deg, #001f3f, #003366, #004080, #0055a5);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.game_name {
+    font-size: 200%;
+    text-transform: uppercase;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a:hover {
+    color: white;
+}

@@ -1,0 +1,31 @@
+{% extends 'app/layouts/base.html' %}
+{% block title %}All Videos{% endblock %}
+
+{% block content %}
+    <div>
+    <button class="add-btn"><a href="{% url 'add_video' %}">Add video</a></button>
+    </div>
+    <div style="margin-left: 30%; margin-top: 20px">
+        <div class="videos-gallery">
+            {% for video in videos %}
+                <div class="video-card" style="margin-top: 20px;">
+                    <video width="320" height="240" controls>
+                        <source src="{{ video.video_file.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <p>{{ video.title }}</p>
+
+                    <form method="POST" action="{% url 'delete_video' video.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+
+                    <a href="{% url 'edit_video' video.id %}" class="edit-btn">Edit</a>
+                </div>
+            {% empty %}
+                <p>No videos available.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

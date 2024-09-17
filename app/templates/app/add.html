@@ -1,0 +1,16 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+{% block title %}Add{% endblock %}
+
+{% block content %}
+
+    <div class="crud">
+        <div class="crud_name">Add-Delete-Edit</div>
+        <div class="crud_option"><a href="{% url 'show_screenshot' %}">Скриншот</a></div>
+        <div class="crud_option"><a href="{% url 'show_video' %}">Видео</a></div>
+        <div class="crud_option"><a href="{% url 'show_audio' %}">Аудио</a></div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+{% block title %}Add video{% endblock %}
+
+{% block content %}
+    <h2 style="color: white">Add video</h2>
+    <form style="color: white" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style="margin-left: 50px" type="submit">Save</button>
+    </form>
+
+{% endblock %}

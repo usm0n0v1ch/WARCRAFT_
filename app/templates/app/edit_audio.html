@@ -1,0 +1,14 @@
+{% extends 'app/layouts/base.html' %}
+{% block title %}Edit Audio{% endblock %}
+
+{% block content %}
+    <div class="edit-form-container">
+        <h1>Edit Audio</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+        <a href="{% url 'show_audios' %}" class="back-btn">Back to All Audios</a>
+    </div>
+{% endblock %}

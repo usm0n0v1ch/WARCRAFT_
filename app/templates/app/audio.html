@@ -1,0 +1,42 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+{% block title %}Audio{% endblock %}
+
+{% block content %}
+<div class="audio-gallery">
+    {% for audio in audios %}
+    <div class="audio-card">
+        {% if audio.replica_or_song %}
+            {% if audio.replica_or_song.name == 'Song' %}
+                <div class="audio-info song">
+                    <p>{{ audio.replica_or_song.name }}</p>
+                </div>
+                <div class="audio-content">
+                    <audio controls>
+                        <source src="{{ audio.audio.url }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            {% else %}
+                <div class="audio-content">
+                    <audio controls>
+                        <source src="{{ audio.audio.url }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-info replica">
+                    <p>{{ audio.replica_or_song.name }}</p>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="audio-content">
+                <audio controls>
+                    <source src="{{ audio.audio.url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

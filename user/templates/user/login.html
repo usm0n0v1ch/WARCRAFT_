@@ -1,0 +1,17 @@
+{% extends 'user/layouts/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+
+
+{% block content %}
+ <h2 >login: admin</h2>
+        <h2 >login: admin</h2>
+        <form autocomplete="off" class="my-form" action="" method="post">
+            <h2>LOGIN</h2>
+            {% csrf_token %}
+            {{ form }}
+            <button>Sign Up</button>
+            <a href="{% url 'register' %}">Do not have account?</a>
+        </form>
+{% endblock %}

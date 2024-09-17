@@ -1,0 +1,14 @@
+{% extends 'app/layouts/base.html' %}
+{% block title %}Edit Screenshot{% endblock %}
+
+{% block content %}
+    <div class="edit-form-container">
+        <h1>Edit Screenshot</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+        <a href="{% url 'show_screenshot' %}" class="back-btn">Back to All Screenshots</a>
+    </div>
+{% endblock %}

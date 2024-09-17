@@ -1,0 +1,14 @@
+{% extends 'app/layouts/base.html' %}
+{% block title %}Edit Video{% endblock %}
+
+{% block content %}
+    <div class="edit-form-container">
+        <h1>Edit Video</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+        <a href="{% url 'show_video' %}" class="back-btn">Back to All Videos</a>
+    </div>
+{% endblock %}

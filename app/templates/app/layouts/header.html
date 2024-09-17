@@ -1,0 +1,24 @@
+{% load static %}
+
+<header>
+    <div class="nav">
+        <div><img src="{% static 'app/media/icon.png' %}"></div>
+        <div class="game_name">Warcraft</div>
+        <div><a href="{% url 'about' %}">About</a></div>
+        <div><a href="{% url 'screenshots' %}">Screenshots</a></div>
+        <div><a href="{% url 'video' %}">Video</a></div>
+        <div><a href="{% url 'audio' %}">Audio</a></div>
+
+        {% if user.is_authenticated %}
+            {% if user.is_staff %}
+                <div><a href="{% url 'add' %}">Add</a></div>
+            {% endif %}
+            <!-- Show Logout button when user is authenticated -->
+            <div><a href="{% url 'logout' %}">Logout</a></div>
+        {% else %}
+            <!-- Show Login link when user is not authenticated -->
+            <div><a href="{% url 'login' %}">Login</a></div>
+        {% endif %}
+    </div>
+</header>
+

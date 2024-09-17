@@ -1,0 +1,42 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+<div class="video-gallery">
+    {% for video in videos %}
+    <div class="video-card">
+        {% if video.process_or_cinematic %}
+            {% if video.process_or_cinematic.name == 'Process' %}
+                <div class="video-info process">
+                    <p>{{ video.process_or_cinematic.name }}</p>
+                </div>
+                <div class="video-content">
+                    <video controls muted>
+                        <source src="{{ video.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            {% else %}
+                <div class="video-content">
+                    <video controls muted>
+                        <source src="{{ video.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-info cinematic">
+                    <p>{{ video.process_or_cinematic.name }}</p>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="video-content">
+                <video controls muted>
+                    <source src="{{ video.video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

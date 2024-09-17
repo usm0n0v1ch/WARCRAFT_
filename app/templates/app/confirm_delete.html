@@ -1,0 +1,12 @@
+{% extends 'app/layouts/base.html' %}
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+    <h2>Are you sure you want to delete this screenshot?</h2>
+    <img src="{{ screenshot.image.url }}" alt="Screenshot">
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="confirm-btn">Yes, delete</button>
+        <a href="{% url 'show_screenshot' %}" class="cancel-btn">Cancel</a>
+    </form>
+{% endblock %}
